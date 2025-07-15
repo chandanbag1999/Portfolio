@@ -1,0 +1,397 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 330 81% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262 83% 58%;
+    --chart-1: 262 83% 58%;
+    --chart-2: 199 89% 48%;
+    --chart-3: 330 81% 60%;
+    --chart-4: 169 65% 42%;
+    --chart-5: 27 96% 61%;
+    --radius: 0.5rem;
+    
+    /* Custom button colors for light mode */
+    --nav-button-bg: 0 0% 98%;
+    --nav-button-hover: 262 83% 58%;
+    --nav-button-text: 222.2 84% 4.9%;
+    --nav-button-text-hover: 0 0% 100%;
+    
+    /* Hero button colors for light mode */
+    --hero-primary-btn-bg: 262 83% 58%;
+    --hero-primary-btn-text: 0 0% 100%;
+    --hero-primary-btn-hover: 262 83% 48%;
+    --hero-secondary-btn-bg: 0 0% 100%;
+    --hero-secondary-btn-text: 222.2 84% 4.9%;
+    --hero-secondary-btn-hover: 262 30% 95%;
+    --hero-secondary-btn-hover-text: 262 83% 58%;
+    
+    /* Theme toggle colors for light mode */
+    --theme-toggle-bg: 210 40% 90%;
+    --theme-toggle-border: 214.3 31.8% 80%;
+    --sun-icon-color: 262 83% 58%;
+    --moon-icon-color: 217 100% 50%;
+  }
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 330 81% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 262 83% 58%;
+    --chart-1: 262 83% 58%;
+    --chart-2: 199 89% 48%;
+    --chart-3: 330 81% 60%;
+    --chart-4: 169 65% 42%;
+    --chart-5: 27 96% 61%;
+    
+    /* Custom button colors for dark mode */
+    --nav-button-bg: 217.2 32.6% 17.5%;
+    --nav-button-hover: 262 83% 58%;
+    --nav-button-text: 210 40% 98%;
+    --nav-button-text-hover: 0 0% 100%;
+    
+    /* Hero button colors for dark mode */
+    --hero-primary-btn-bg: 262 83% 58%;
+    --hero-primary-btn-text: 0 0% 100%;
+    --hero-primary-btn-hover: 262 83% 68%;
+    --hero-secondary-btn-bg: 222.2 84% 4.9%;
+    --hero-secondary-btn-text: 210 40% 98%;
+    --hero-secondary-btn-hover: 262 40% 30%;
+    --hero-secondary-btn-hover-text: 0 0% 100%;
+    
+    /* Theme toggle colors for dark mode */
+    --theme-toggle-bg: 217.2 32.6% 15%;
+    --theme-toggle-border: 217.2 32.6% 25%;
+    --sun-icon-color: 262 83% 58%;
+    --moon-icon-color: 217 100% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom navigation button styles */
+@layer components {
+  .nav-button {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300;
+    background-color: hsl(var(--nav-button-bg));
+    color: hsl(var(--nav-button-text));
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .nav-button:hover {
+    background-color: hsl(var(--nav-button-hover));
+    color: hsl(var(--nav-button-text-hover));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .footer-link {
+    @apply text-muted-foreground hover:text-primary transition-all duration-300 font-medium;
+  }
+  
+  .footer-link:hover {
+    @apply underline;
+  }
+  
+  /* Hero section button styles */
+  .hero-primary-btn {
+    @apply px-8 py-3 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300;
+    background-color: hsl(var(--hero-primary-btn-bg));
+    color: hsl(var(--hero-primary-btn-text));
+    box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  .hero-primary-btn:hover {
+    background-color: hsl(var(--hero-primary-btn-hover));
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(124, 58, 237, 0.6);
+  }
+  
+  .hero-secondary-btn {
+    @apply px-8 py-3 text-lg font-semibold rounded-lg border-2 transition-all duration-300;
+    background-color: hsl(var(--hero-secondary-btn-bg));
+    color: hsl(var(--hero-secondary-btn-text));
+    border-color: hsl(var(--primary) / 0.3);
+    backdrop-filter: blur(10px);
+  }
+  
+  .hero-secondary-btn:hover {
+    background-color: hsl(var(--hero-secondary-btn-hover));
+    color: hsl(var(--hero-secondary-btn-hover-text));
+    border-color: hsl(var(--primary));
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.3);
+  }
+  
+  .social-icon-btn {
+    @apply p-3 rounded-lg border transition-all duration-300;
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    border-color: hsl(var(--border));
+    box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .social-icon-btn:hover {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.4);
+  }
+  
+  /* Theme toggle button styles */
+  .theme-toggle-btn {
+    @apply relative overflow-hidden rounded-md border transition-all duration-300;
+    background-color: hsl(var(--theme-toggle-bg));
+    border-color: hsl(var(--theme-toggle-border));
+    width: 2.5rem;
+    height: 2.5rem;
+    box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+  }
+  
+  .theme-toggle-btn:hover {
+    @apply shadow-md;
+    background-color: hsl(var(--primary));
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.4);
+  }
+  
+  .theme-toggle-btn .sun-icon {
+    @apply absolute inset-0 flex items-center justify-center transition-all duration-300;
+    color: hsl(var(--sun-icon-color));
+  }
+  
+  .theme-toggle-btn .moon-icon {
+    @apply absolute inset-0 flex items-center justify-center transition-all duration-300;
+    color: hsl(var(--moon-icon-color));
+  }
+  
+  .dark .theme-toggle-btn .sun-icon {
+    transform: rotate(-90deg) scale(0);
+    opacity: 0;
+  }
+  
+  .dark .theme-toggle-btn .moon-icon {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+  
+  .theme-toggle-btn .sun-icon {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+  
+  .theme-toggle-btn .moon-icon {
+    transform: rotate(90deg) scale(0);
+    opacity: 0;
+  }
+  
+  /* Glassmorphism effects */
+  .glass-card {
+    @apply rounded-xl border border-opacity-20;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  .glass-effect {
+    @apply rounded-xl;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  /* Typewriter effect styling */
+  .typewriter-wrapper {
+    @apply font-medium;
+    background: linear-gradient(to right, #9333ea, #3b82f6, #ec4899);
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    position: relative;
+    padding: 0 5px;
+  }
+  
+  .dark .typewriter-wrapper {
+    text-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
+  }
+  
+  .typewriter-cursor {
+    color: #9333ea !important;
+    text-shadow: 0 0 8px rgba(147, 51, 234, 0.6);
+  }
+  
+  @keyframes shine {
+    0% {
+      background-position: 0% center;
+    }
+    50% {
+      background-position: 100% center;
+    }
+    100% {
+      background-position: 0% center;
+    }
+  }
+  
+  /* Animation for blobs */
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+  
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-3000 {
+    animation-delay: 3s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  
+  /* Stats card hover effect */
+  .glass-card {
+    transition: all 0.3s ease;
+  }
+  
+  .glass-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2);
+    border-color: rgba(147, 51, 234, 0.3);
+  }
+}
