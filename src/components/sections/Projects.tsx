@@ -3,26 +3,49 @@ import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useState } from 'react';
+import ProjectDialog from '@/components/ProjectDialog';
+
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  github: string;
+  demo: string;
+  featured: boolean;
+}
 
 const Projects = () => {
-  const projects = [
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleOpenProjectDialog = (project: Project) => {
+    setSelectedProject(project);
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseProjectDialog = () => {
+    setIsDialogOpen(false);
+  };
+  const projects: Project[] = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution built with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: 'AI-Powered-Real-Time-Team-Task-Manager',
+      description: 'AI-Powered Real-Time Task Manager React, Node.js, MongoDB, Socket.io, Gemini API — Real-time team collaboration, smart task suggestions, and drag-and-drop UI',
+      image: '/AI-Powered Real-Time Task Manager.png',
       technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS'],
-      github: 'https://github.com',
+      github: 'https://github.com/chandanbag1999/AI-Powered-Real-Time-Team-Task-Manager',
       demo: 'https://demo.example.com',
       featured: true,
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: 'Time4Meds — Smart Medicine Reminder App',
+      description: 'A full-stack medicine reminder application built with React, Node.js, and MongoDB. Features include secure user authentication, customizable medication schedules, timely push/email reminders, medication history tracking, and responsive UI built with Tailwind CSS.',
+      image: 'https://images.pexels.com/photos/576831/pexels-photo-576831.jpeg?_gl=1*1sh9eex*_ga*MzE3NTQzNzY1LjE3NTI2ODYzNjI.*_ga_8JE65Q40S6*czE3NTI2ODYzNjIkbzEkZzEkdDE3NTI2ODYzOTMkajI5JGwwJGgw',
       technologies: ['Vue.js', 'Express', 'MongoDB', 'Socket.io'],
-      github: 'https://github.com',
+      github: 'https://github.com/chandanbag1999/Time4Meds',
       demo: 'https://demo.example.com',
-      featured: false,
+      featured: true,
     },
     {
       title: 'Weather Dashboard',
@@ -34,13 +57,13 @@ const Projects = () => {
       featured: false,
     },
     {
-      title: 'Social Media Analytics',
-      description: 'An analytics platform for social media insights with data visualization, automated reporting, and trend analysis.',
-      image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Next.js', 'Python', 'Chart.js', 'Redis'],
-      github: 'https://github.com',
+      title: 'Time4Meds — Smart Medicine Reminder App',
+      description: 'A full-stack medicine reminder application built with React, Node.js, and MongoDB. Features include secure user authentication, customizable medication schedules, timely push/email reminders, medication history tracking, and responsive UI built with Tailwind CSS.',
+      image: 'https://images.pexels.com/photos/576831/pexels-photo-576831.jpeg?_gl=1*1sh9eex*_ga*MzE3NTQzNzY1LjE3NTI2ODYzNjI.*_ga_8JE65Q40S6*czE3NTI2ODYzNjIkbzEkZzEkdDE3NTI2ODYzOTMkajI5JGwwJGgw',
+      technologies: ['Vue.js', 'Express', 'MongoDB', 'Socket.io'],
+      github: 'https://github.com/chandanbag1999/Time4Meds',
       demo: 'https://demo.example.com',
-      featured: true,
+      featured: false,
     },
     {
       title: 'Mobile Banking App',
@@ -50,15 +73,6 @@ const Projects = () => {
       github: 'https://github.com',
       demo: 'https://demo.example.com',
       featured: false,
-    },
-    {
-      title: 'AI Content Generator',
-      description: 'An AI-powered content generation tool with multiple templates, real-time editing, and collaboration features.',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'OpenAI API', 'Node.js', 'MongoDB'],
-      github: 'https://github.com',
-      demo: 'https://demo.example.com',
-      featured: true,
     },
   ];
 
@@ -102,7 +116,8 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-64 object-scale-down bg-gray-100 transition-transform duration-300 group-hover:scale-105"
+                    style={{ padding: '12px' }}
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
                     <Button size="sm" variant="secondary" asChild>
@@ -134,7 +149,11 @@ const Projects = () => {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="ghost" className="w-full group/btn">
+                  <Button 
+                    variant="ghost" 
+                    className="w-full group/btn"
+                    onClick={() => handleOpenProjectDialog(project)}
+                  >
                     View Project Details
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
@@ -168,9 +187,10 @@ const Projects = () => {
                 <Card className="h-full hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
                   <div className="relative overflow-hidden">
                     <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105"
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-52 object-scale-down bg-gray-100 transition-transform duration-300 group-hover:scale-102"
+                    style={{ padding: '12px' }}
                     />
                   </div>
                   <CardHeader>
@@ -203,6 +223,17 @@ const Projects = () => {
                       </a>
                     </Button>
                   </CardFooter>
+                  <CardFooter className="pt-0">
+                    <Button 
+                      size="sm" 
+                      variant="ghost" 
+                      className="w-full"
+                      onClick={() => handleOpenProjectDialog(project)}
+                    >
+                      View Project Details
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </CardFooter>
                 </Card>
               </motion.div>
             ))}
@@ -217,12 +248,21 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button size="lg" variant="outline">
-            View All Projects on GitHub
-            <Github className="ml-2 h-4 w-4" />
+          <Button size="lg" variant="outline" asChild>
+            <a href="https://github.com/chandanbag1999" target="_blank" rel="noopener noreferrer">
+              View All Projects on GitHub
+              <Github className="ml-2 h-4 w-4" />
+            </a>
           </Button>
         </motion.div>
       </div>
+
+      {/* Project Dialog */}
+      <ProjectDialog 
+        isOpen={isDialogOpen} 
+        onClose={handleCloseProjectDialog} 
+        project={selectedProject} 
+      />
     </section>
   );
 };

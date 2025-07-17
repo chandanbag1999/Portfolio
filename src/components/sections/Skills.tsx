@@ -25,16 +25,16 @@ const Skills = () => {
         { name: 'MongoDB', level: 80 },
       ],
     },
-    {
-      title: 'Mobile Development',
-      icon: Smartphone,
-      skills: [
-        { name: 'React Native', level: 85 },
-        { name: 'Flutter', level: 75 },
-        { name: 'iOS/Swift', level: 70 },
-        { name: 'Android/Kotlin', level: 72 },
-      ],
-    },
+    // {
+    //   title: 'Mobile Development',
+    //   icon: Smartphone,
+    //   skills: [
+    //     { name: 'React Native', level: 85 },
+    //     { name: 'Flutter', level: 75 },
+    //     { name: 'iOS/Swift', level: 70 },
+    //     { name: 'Android/Kotlin', level: 72 },
+    //   ],
+    // },
     {
       title: 'Design & Tools',
       icon: Palette,

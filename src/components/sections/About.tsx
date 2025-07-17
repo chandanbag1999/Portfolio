@@ -47,9 +47,10 @@ const About = () => {
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-purple-500/20 glass-card p-2 shadow-xl">
                 <img
-                  src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="/profile.png"
                   alt="Profile"
-                  className="w-full h-full object-cover rounded-xl"
+                  className="w-full h-full object-cover object-top rounded-xl"
+                  style={{ objectPosition: '50% 15%' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-transparent opacity-60 rounded-xl"></div>
               </div>
@@ -107,10 +108,20 @@ const About = () => {
               ))}
             </div>
 
-            <Button className="hero-primary-btn group glass-effect">
-              <Download className="mr-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
-              Download Resume
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button asChild className="hero-primary-btn group glass-effect hover:shadow-lg transition-all">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <Download className="mr-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
+                  Download Resume
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="group glass-effect hover:shadow-lg transition-all">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <span className="mr-2">👁️</span>
+                  View Resume
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </div>
