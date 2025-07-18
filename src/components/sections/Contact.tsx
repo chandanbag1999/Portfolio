@@ -71,45 +71,45 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
             Get In Touch
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
             Let's Work Together
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Have a project in mind? I'd love to hear about it. Send me a message and let's discuss how we can bring your ideas to life.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8 order-2 lg:order-1"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Let's Connect</h3>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 I'm always interested in new opportunities and exciting projects. 
                 Whether you're a company looking to hire, or you're a fellow developer 
                 wanting to collaborate, don't hesitate to reach out.
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={info.title}
@@ -119,22 +119,22 @@ const Contact = () => {
                   viewport={{ once: true }}
                 >
                   <Card className="hover:shadow-md transition-shadow">
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="p-3 bg-primary/10 rounded-lg">
-                          <info.icon className="h-6 w-6 text-primary" />
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="flex items-center space-x-3 sm:space-x-4">
+                        <div className="p-2 sm:p-3 bg-primary/10 rounded-lg shrink-0">
+                          <info.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                         </div>
                         <div>
-                          <h4 className="font-semibold">{info.title}</h4>
+                          <h4 className="text-sm sm:text-base font-semibold">{info.title}</h4>
                           {info.href !== '#' ? (
                             <a
                               href={info.href}
-                              className="text-muted-foreground hover:text-primary transition-colors"
+                              className="text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors break-all"
                             >
                               {info.value}
                             </a>
                           ) : (
-                            <p className="text-muted-foreground">{info.value}</p>
+                            <p className="text-sm sm:text-base text-muted-foreground">{info.value}</p>
                           )}
                         </div>
                       </div>
@@ -150,13 +150,13 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="p-6 bg-primary/5 rounded-lg border border-primary/10"
+              className="p-4 sm:p-6 bg-primary/5 rounded-lg border border-primary/10"
             >
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-500" />
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 shrink-0" />
                 <div>
-                  <h4 className="font-semibold">Quick Response</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <h4 className="text-sm sm:text-base font-semibold">Quick Response</h4>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
                     I typically respond within 24 hours
                   </p>
                 </div>
@@ -170,21 +170,22 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
+            className="order-1 lg:order-2"
           >
             <Card>
               <CardHeader>
-                <CardTitle>Send Message</CardTitle>
+                <CardTitle className="text-lg sm:text-xl">Send Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                      <Label htmlFor="name">Name</Label>
+                      <Label htmlFor="name" className="text-sm">Name</Label>
                       <Input
                         id="name"
                         {...register('name')}
                         placeholder="Your name"
-                        className={errors.name ? 'border-destructive' : ''}
+                        className={`mt-1 ${errors.name ? 'border-destructive' : ''}`}
                       />
                       {errors.name && (
                         <p className="text-sm text-destructive mt-1">
@@ -193,13 +194,13 @@ const Contact = () => {
                       )}
                     </div>
                     <div>
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="email" className="text-sm">Email</Label>
                       <Input
                         id="email"
                         type="email"
                         {...register('email')}
                         placeholder="your@email.com"
-                        className={errors.email ? 'border-destructive' : ''}
+                        className={`mt-1 ${errors.email ? 'border-destructive' : ''}`}
                       />
                       {errors.email && (
                         <p className="text-sm text-destructive mt-1">
@@ -210,12 +211,12 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="subject">Subject</Label>
+                    <Label htmlFor="subject" className="text-sm">Subject</Label>
                     <Input
                       id="subject"
                       {...register('subject')}
                       placeholder="Project discussion"
-                      className={errors.subject ? 'border-destructive' : ''}
+                      className={`mt-1 ${errors.subject ? 'border-destructive' : ''}`}
                     />
                     {errors.subject && (
                       <p className="text-sm text-destructive mt-1">
@@ -225,12 +226,12 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message" className="text-sm">Message</Label>
                     <Textarea
                       id="message"
                       {...register('message')}
                       placeholder="Tell me about your project..."
-                      className={`min-h-[120px] ${errors.message ? 'border-destructive' : ''}`}
+                      className={`mt-1 min-h-[100px] sm:min-h-[120px] ${errors.message ? 'border-destructive' : ''}`}
                     />
                     {errors.message && (
                       <p className="text-sm text-destructive mt-1">
@@ -241,7 +242,7 @@ const Contact = () => {
 
                   <Button
                     type="submit"
-                    className="w-full"
+                    className="w-full text-sm sm:text-base"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

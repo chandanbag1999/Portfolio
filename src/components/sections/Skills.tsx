@@ -48,27 +48,27 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
             My Skills
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
             What I Bring to the Table
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             A comprehensive skill set spanning modern web technologies and design principles
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -79,12 +79,12 @@ const Skills = () => {
             >
               <Card className="h-full hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-lg w-fit">
-                    <category.icon className="h-8 w-8 text-primary" />
+                  <div className="mx-auto mb-3 sm:mb-4 p-2 sm:p-3 bg-primary/10 rounded-lg w-fit">
+                    <category.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
                   </div>
-                  <CardTitle className="text-lg">{category.title}</CardTitle>
+                  <CardTitle className="text-base sm:text-lg">{category.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-3 sm:space-y-4">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
@@ -96,11 +96,11 @@ const Skills = () => {
                       }}
                       viewport={{ once: true }}
                     >
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium">{skill.name}</span>
+                      <div className="flex justify-between items-center mb-1.5 sm:mb-2">
+                        <span className="text-xs sm:text-sm font-medium">{skill.name}</span>
                         <span className="text-xs text-muted-foreground">{skill.level}%</span>
                       </div>
-                      <Progress value={skill.level} className="h-2" />
+                      <Progress value={skill.level} className="h-1.5 sm:h-2" />
                     </motion.div>
                   ))}
                 </CardContent>
@@ -115,10 +115,10 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-12 sm:mt-16 text-center"
         >
-          <h3 className="text-2xl font-bold mb-8">Technologies I Love Working With</h3>
-          <div className="flex flex-wrap justify-center gap-4">
+          <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 px-4 sm:px-0">Technologies I Love Working With</h3>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 px-4 sm:px-0">
             {[
               'React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 
               'PostgreSQL', 'MongoDB', 'AWS', 'Docker', 'GraphQL', 'Python', 'Vue.js'
@@ -130,7 +130,7 @@ const Skills = () => {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
-                className="px-4 py-2 bg-secondary text-secondary-foreground rounded-full text-sm font-medium cursor-default"
+                className="px-3 py-1.5 sm:px-4 sm:py-2 bg-secondary text-secondary-foreground rounded-full text-xs sm:text-sm font-medium cursor-default"
               >
                 {tech}
               </motion.span>

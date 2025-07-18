@@ -29,49 +29,49 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({ isOpen, onClose, project 
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-3xl">
+      <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto mx-4 sm:mx-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl">{project.title}</DialogTitle>
-          <DialogDescription className="text-base mt-2">
+          <DialogTitle className="text-xl sm:text-2xl pr-8">{project.title}</DialogTitle>
+          <DialogDescription className="text-sm sm:text-base mt-2">
             {project.description}
           </DialogDescription>
         </DialogHeader>
 
-        <div className="my-6">
-          <div className="rounded-lg overflow-hidden mb-6">
+        <div className="my-4 sm:my-6">
+          <div className="rounded-lg overflow-hidden mb-4 sm:mb-6">
             <img 
               src={project.image} 
               alt={project.title} 
-              className="w-full h-auto max-h-[400px] object-scale-down bg-gray-100 p-4" 
+              className="w-full h-auto max-h-[250px] sm:max-h-[400px] object-scale-down bg-gray-100 p-2 sm:p-4" 
             />
           </div>
 
-          <div className="mb-6">
-            <h4 className="text-lg font-semibold mb-2">Technologies Used</h4>
-            <div className="flex flex-wrap gap-2">
+          <div className="mb-4 sm:mb-6">
+            <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">Technologies Used</h4>
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {project.technologies.map((tech) => (
-                <Badge key={tech} variant="outline">{tech}</Badge>
+                <Badge key={tech} variant="outline" className="text-xs sm:text-sm">{tech}</Badge>
               ))}
             </div>
           </div>
         </div>
 
-        <DialogFooter className="flex sm:justify-between flex-col sm:flex-row gap-4">
-          <div className="flex gap-4">
-            <Button asChild>
+        <DialogFooter className="flex flex-col sm:flex-row sm:justify-between gap-3 sm:gap-4">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 order-2 sm:order-1">
+            <Button asChild className="w-full sm:w-auto">
               <a href={project.demo} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4 mr-2" />
                 Live Demo
               </a>
             </Button>
-            <Button variant="outline" asChild>
+            <Button variant="outline" asChild className="w-full sm:w-auto">
               <a href={project.github} target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4 mr-2" />
                 View Code
               </a>
             </Button>
           </div>
-          <Button variant="ghost" onClick={onClose}>
+          <Button variant="ghost" onClick={onClose} className="w-full sm:w-auto order-1 sm:order-2">
             Close
           </Button>
         </DialogFooter>
