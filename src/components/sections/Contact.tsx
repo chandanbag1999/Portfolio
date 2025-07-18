@@ -53,20 +53,20 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'alex@example.com',
-      href: 'mailto:alex@example.com',
+      value: 'cbag67612@gmail.com',
+      href: 'mailto:cbag67612@gmail.com',
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+91 7001776875',
+      href: 'tel:+917001776875',
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'San Francisco, CA',
-      href: '#',
+      value: 'Kolkata - 700121, West Bengal, India',
+      href: 'Kolkata - 700121, West Bengal, India',
     },
   ];
 
@@ -87,7 +87,7 @@ const Contact = () => {
             Let's Work Together
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind? I'd love to hear about it. Send me a message and let's discuss how we can bring your ideas to life.
+            Have an idea or a project you'd like to build? I specialize in backend and full-stack development — let's discuss how we can bring your vision to reality with scalable, production-ready solutions.
           </p>
         </motion.div>
 
@@ -103,9 +103,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
               <p className="text-muted-foreground leading-relaxed">
-                I'm always interested in new opportunities and exciting projects. 
-                Whether you're a company looking to hire, or you're a fellow developer 
-                wanting to collaborate, don't hesitate to reach out.
+                I'm always open to meaningful opportunities and impactful collaborations. Whether you're a company in need of a backend or full-stack developer, or a fellow developer with an exciting idea — feel free to reach out and let's build something great together.
               </p>
             </div>
 

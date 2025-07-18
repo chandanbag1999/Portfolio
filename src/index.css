@@ -181,7 +181,7 @@ button:focus-visible {
 /* Custom navigation button styles */
 @layer components {
   .nav-button {
-    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300;
+    @apply px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base;
     background-color: hsl(var(--nav-button-bg));
     color: hsl(var(--nav-button-text));
     border: 1px solid hsl(var(--border));
@@ -191,7 +191,7 @@ button:focus-visible {
     background-color: hsl(var(--nav-button-hover));
     color: hsl(var(--nav-button-text-hover));
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px hsla(var(--primary), 0.15);
   }
   
   .footer-link {
@@ -255,17 +255,24 @@ button:focus-visible {
     @apply relative overflow-hidden rounded-md border transition-all duration-300;
     background-color: hsl(var(--theme-toggle-bg));
     border-color: hsl(var(--theme-toggle-border));
-    width: 2.5rem;
-    height: 2.5rem;
-    box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.15);
+    width: 2.25rem;
+    height: 2.25rem;
+    box-shadow: 0 5px 15px -3px hsla(var(--primary), 0.1);
     backdrop-filter: blur(10px);
+  }
+  
+  @media (min-width: 768px) {
+    .theme-toggle-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
   }
   
   .theme-toggle-btn:hover {
     @apply shadow-md;
     background-color: hsl(var(--primary));
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.4);
+    box-shadow: 0 10px 25px -5px hsla(var(--primary), 0.3);
   }
   
   .theme-toggle-btn .sun-icon {
@@ -310,10 +317,32 @@ button:focus-visible {
   .glass-effect {
     @apply rounded-xl;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  .nav-button.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  .nav-button.glass-effect:hover {
+    background-color: hsl(var(--nav-button-hover));
+    box-shadow: 0 4px 12px hsla(var(--primary), 0.15);
+  }
+  
+  .dark .nav-button.glass-effect {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  .dark .nav-button.glass-effect:hover {
+    background-color: hsl(var(--nav-button-hover));
+    box-shadow: 0 4px 12px hsla(var(--primary), 0.2);
   }
   
   /* Typewriter effect styling */
