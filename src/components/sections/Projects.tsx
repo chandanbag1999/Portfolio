@@ -80,28 +80,28 @@ const Projects = () => {
   const otherProjects = projects.filter(project => !project.featured);
 
   return (
-    <section id="projects" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-16 sm:py-20 md:py-24 lg:py-28 relative overflow-hidden">
+      <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-5 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-primary/10 text-primary rounded-full text-sm sm:text-base md:text-lg font-medium mb-6 sm:mb-8 glass-effect backdrop-blur-sm">
             My Work
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-primary via-blue-500 to-pink-500 bg-clip-text text-transparent leading-tight">
             Featured Projects
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my recent work and side projects
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto leading-relaxed px-4">
+            Here are some of my recent projects that showcase my skills in full-stack development, UI/UX design, and problem-solving.
           </p>
         </motion.div>
 
         {/* Featured Projects */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 mb-12 sm:mb-16 md:mb-20">
           {featuredProjects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -170,11 +170,11 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-2xl font-bold mb-8 text-center"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-10 md:mb-12 text-center bg-gradient-to-r from-primary via-blue-500 to-pink-500 bg-clip-text text-transparent"
           >
             Other Projects
           </motion.h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
             {otherProjects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -184,39 +184,40 @@ const Projects = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
-                  <div className="relative overflow-hidden">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 glass-card border-none">
+                  <div className="relative overflow-hidden rounded-t-xl">
                     <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-52 object-scale-down bg-gray-100 transition-transform duration-300 group-hover:scale-102"
+                    className="w-full h-48 sm:h-52 md:h-56 object-scale-down bg-gray-100 transition-transform duration-300 group-hover:scale-105"
                     style={{ padding: '12px' }}
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                  <CardHeader>
-                    <h4 className="text-lg font-semibold">{project.title}</h4>
+                  <CardHeader className="pb-3">
+                    <h4 className="text-lg sm:text-xl font-semibold leading-tight">{project.title}</h4>
                   </CardHeader>
-                  <CardContent className="flex-1">
-                    <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-1">
+                  <CardContent className="flex-1 pb-4">
+                    <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+                    <div className="flex flex-wrap gap-2">
                       {project.technologies.slice(0, 3).map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs">{tech}</Badge>
+                        <Badge key={tech} variant="outline" className="text-xs sm:text-sm px-2 py-1">{tech}</Badge>
                       ))}
                       {project.technologies.length > 3 && (
-                        <Badge variant="outline" className="text-xs">
+                        <Badge variant="outline" className="text-xs sm:text-sm px-2 py-1">
                           +{project.technologies.length - 3}
                         </Badge>
                       )}
                     </div>
                   </CardContent>
-                  <CardFooter className="flex gap-2">
-                    <Button size="sm" variant="outline" className="flex-1" asChild>
+                  <CardFooter className="flex gap-3 pb-3">
+                    <Button size="sm" variant="outline" className="flex-1 glass-effect" asChild>
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github className="h-4 w-4 mr-2" />
                         Code
                       </a>
                     </Button>
-                    <Button size="sm" className="flex-1" asChild>
+                    <Button size="sm" className="flex-1 hero-primary-btn" asChild>
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Demo
@@ -227,7 +228,7 @@ const Projects = () => {
                     <Button 
                       size="sm" 
                       variant="ghost" 
-                      className="w-full"
+                      className="w-full hover:bg-primary/10 transition-all duration-300"
                       onClick={() => handleOpenProjectDialog(project)}
                     >
                       View Project Details
@@ -246,12 +247,12 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-12 sm:mt-16 md:mt-20"
         >
-          <Button size="lg" variant="outline" asChild>
+          <Button size="lg" variant="outline" className="hero-secondary-btn glass-effect" asChild>
             <a href="https://github.com/chandanbag1999" target="_blank" rel="noopener noreferrer">
               View All Projects on GitHub
-              <Github className="ml-2 h-4 w-4" />
+              <Github className="ml-3 h-5 w-5 sm:h-6 sm:w-6" />
             </a>
           </Button>
         </motion.div>

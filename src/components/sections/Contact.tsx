@@ -36,17 +36,43 @@ const Contact = () => {
   const onSubmit = async (data: ContactForm) => {
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form data:', data);
-    toast.success('Message sent successfully! I\'ll get back to you soon.');
-    setIsSubmitted(true);
-    reset();
-    setIsSubmitting(false);
-    
-    // Reset success state after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+    try {
+      // Using Formspree to send real emails to your Gmail
+      const formData = new FormData();
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('subject', data.subject);
+      formData.append('message', data.message);
+      formData.append('_replyto', data.email);
+      formData.append('_subject', `Portfolio Contact: ${data.subject}`);
+      
+      // Formspree endpoint - Replace 'xpznvlqr' with your actual Formspree form ID
+      // Get your form ID from https://formspree.io after creating an account
+      const response = await fetch('https://formspree.io/f/xovlvrwl', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        toast.success('Message sent successfully! I\'ll get back to you soon.');
+        setIsSubmitted(true);
+        reset();
+        
+        // Reset success state after 5 seconds
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast.error('Failed to send message. Please try again or contact me directly at cbag67612@gmail.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -71,43 +97,49 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-16 sm:py-20 md:py-24 lg:py-28 bg-muted/30 dark:bg-muted/20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-20 -left-20 w-72 h-72 bg-primary/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 -right-20 w-72 h-72 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-5 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-primary/10 text-primary rounded-full text-sm sm:text-base md:text-lg font-medium mb-6 sm:mb-8 glass-effect backdrop-blur-sm">
             Get In Touch
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-primary via-blue-500 to-pink-500 bg-clip-text text-transparent leading-tight">
             Let's Work Together
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto leading-relaxed px-4">
             Have an idea or a project you'd like to build? I specialize in backend and full-stack development — let's discuss how we can bring your vision to reality with scalable, production-ready solutions.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8 md:space-y-10"
           >
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
-              <p className="text-muted-foreground leading-relaxed">
+            <div className="glass-card p-6 sm:p-8 md:p-10 rounded-2xl border-none">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Let's Connect</h3>
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                 I'm always open to meaningful opportunities and impactful collaborations. Whether you're a company in need of a backend or full-stack developer, or a fellow developer with an exciting idea — feel free to reach out and let's build something great together.
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={info.title}
@@ -115,29 +147,28 @@ const Contact = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  className="glass-card p-4 sm:p-6 md:p-8 rounded-xl border-none hover:shadow-lg transition-all duration-300 group"
                 >
-                  <Card className="hover:shadow-md transition-shadow">
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="p-3 bg-primary/10 rounded-lg">
-                          <info.icon className="h-6 w-6 text-primary" />
-                        </div>
-                        <div>
-                          <h4 className="font-semibold">{info.title}</h4>
-                          {info.href !== '#' ? (
-                            <a
-                              href={info.href}
-                              className="text-muted-foreground hover:text-primary transition-colors"
-                            >
-                              {info.value}
-                            </a>
-                          ) : (
-                            <p className="text-muted-foreground">{info.value}</p>
-                          )}
-                        </div>
+                  <div className="flex items-start space-x-4 sm:space-x-6">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                        <info.icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary" />
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-foreground mb-2 text-base sm:text-lg md:text-xl">{info.title}</h4>
+                      {info.href.startsWith('mailto:') || info.href.startsWith('tel:') ? (
+                        <a
+                          href={info.href}
+                          className="text-sm sm:text-base md:text-lg text-muted-foreground hover:text-primary transition-colors duration-300 break-words"
+                        >
+                          {info.value}
+                        </a>
+                      ) : (
+                        <p className="text-sm sm:text-base md:text-lg text-muted-foreground break-words">{info.value}</p>
+                      )}
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -169,38 +200,38 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle>Send Message</CardTitle>
+            <Card className="glass-card border-none shadow-xl dark:shadow-2xl">
+              <CardHeader className="pb-4 sm:pb-6">
+                <CardTitle className="text-xl sm:text-2xl md:text-3xl bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Send Message</CardTitle>
               </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
+              <CardContent className="pt-0">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
-                      <Label htmlFor="name">Name</Label>
+                      <Label htmlFor="name" className="text-sm sm:text-base font-medium">Name</Label>
                       <Input
                         id="name"
                         {...register('name')}
                         placeholder="Your name"
-                        className={errors.name ? 'border-destructive' : ''}
+                        className={`mt-2 h-10 sm:h-12 text-sm sm:text-base glass-effect ${errors.name ? 'border-destructive' : 'border-border/50 dark:border-border/30'}`}
                       />
                       {errors.name && (
-                        <p className="text-sm text-destructive mt-1">
+                        <p className="text-xs sm:text-sm text-destructive mt-1">
                           {errors.name.message}
                         </p>
                       )}
                     </div>
                     <div>
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="email" className="text-sm sm:text-base font-medium">Email</Label>
                       <Input
                         id="email"
                         type="email"
                         {...register('email')}
                         placeholder="your@email.com"
-                        className={errors.email ? 'border-destructive' : ''}
+                        className={`mt-2 h-10 sm:h-12 text-sm sm:text-base glass-effect ${errors.email ? 'border-destructive' : 'border-border/50 dark:border-border/30'}`}
                       />
                       {errors.email && (
-                        <p className="text-sm text-destructive mt-1">
+                        <p className="text-xs sm:text-sm text-destructive mt-1">
                           {errors.email.message}
                         </p>
                       )}
@@ -208,30 +239,30 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="subject">Subject</Label>
+                    <Label htmlFor="subject" className="text-sm sm:text-base font-medium">Subject</Label>
                     <Input
                       id="subject"
                       {...register('subject')}
                       placeholder="Project discussion"
-                      className={errors.subject ? 'border-destructive' : ''}
+                      className={`mt-2 h-10 sm:h-12 text-sm sm:text-base glass-effect ${errors.subject ? 'border-destructive' : 'border-border/50 dark:border-border/30'}`}
                     />
                     {errors.subject && (
-                      <p className="text-sm text-destructive mt-1">
+                      <p className="text-xs sm:text-sm text-destructive mt-1">
                         {errors.subject.message}
                       </p>
                     )}
                   </div>
 
                   <div>
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message" className="text-sm sm:text-base font-medium">Message</Label>
                     <Textarea
                       id="message"
                       {...register('message')}
                       placeholder="Tell me about your project..."
-                      className={`min-h-[120px] ${errors.message ? 'border-destructive' : ''}`}
+                      className={`mt-2 min-h-[120px] sm:min-h-[140px] md:min-h-[160px] text-sm sm:text-base glass-effect resize-none ${errors.message ? 'border-destructive' : 'border-border/50 dark:border-border/30'}`}
                     />
                     {errors.message && (
-                      <p className="text-sm text-destructive mt-1">
+                      <p className="text-xs sm:text-sm text-destructive mt-1">
                         {errors.message.message}
                       </p>
                     )}
@@ -239,22 +270,22 @@ const Contact = () => {
 
                   <Button
                     type="submit"
-                    className="w-full"
+                    className="w-full hero-primary-btn glass-effect h-12 sm:h-14 text-base sm:text-lg md:text-xl font-semibold"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
                       <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        <div className="animate-spin rounded-full h-5 w-5 sm:h-6 sm:w-6 border-b-2 border-white mr-3"></div>
                         Sending...
                       </>
                     ) : isSubmitted ? (
                       <>
-                        <CheckCircle className="h-4 w-4 mr-2" />
+                        <CheckCircle className="h-5 w-5 sm:h-6 sm:w-6 mr-3" />
                         Message Sent!
                       </>
                     ) : (
                       <>
-                        <Send className="h-4 w-4 mr-2" />
+                        <Send className="h-5 w-5 sm:h-6 sm:w-6 mr-3" />
                         Send Message
                       </>
                     )}
