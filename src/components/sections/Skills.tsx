@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Palette, Database, Smartphone, Globe, Zap, RepeatIcon as ReactIcon, Subscript as Javascript } from 'lucide-react';
+import { Code, Palette, Database } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
