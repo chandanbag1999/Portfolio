@@ -11,11 +11,7 @@ const About = () => {
   ];
 
   return (
-<<<<<<< HEAD
     <section id="about" className="py-16 sm:py-20 md:py-24 lg:py-28 bg-muted/30 relative overflow-hidden">
-=======
-    <section id="about" className="py-12 sm:py-16 lg:py-20 bg-muted/30 relative overflow-hidden">
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 sm:top-40 -left-10 sm:-left-20 w-40 h-40 sm:w-72 sm:h-72 bg-violet-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
@@ -28,7 +24,6 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-<<<<<<< HEAD
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <span className="inline-block px-5 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-primary/10 text-primary rounded-full text-sm sm:text-base md:text-lg font-medium mb-6 sm:mb-8 glass-effect backdrop-blur-sm">
@@ -38,26 +33,11 @@ const About = () => {
             Crafting Real-World Solutions with Code and Design
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto leading-relaxed px-4">
-=======
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
-        >
-          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4 glass-effect">
-            About Me
-          </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-primary via-blue-500 to-pink-500 bg-clip-text text-transparent px-4 sm:px-0">
-            Crafting Real-World Solutions with Code and Design
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
             Building intuitive web apps that blend clean design, real-time functionality, and backend power.
           </p>
         </motion.div>
 
-<<<<<<< HEAD
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
-=======
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -91,17 +71,10 @@ const About = () => {
             viewport={{ once: true }}
             className="space-y-4 sm:space-y-6 order-1 lg:order-2"
           >
-<<<<<<< HEAD
             <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6">
               Hello! I'm <span className="text-primary">Chandan</span>, a backend-focused full-stack developer who builds modern web apps that are clean, responsive, and real-world ready.
             </h3>
             <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed glass-card p-6 sm:p-8 md:p-10 rounded-2xl">
-=======
-            <h3 className="text-xl sm:text-2xl font-bold">
-              Hello! I'm <span className="text-primary">Chandan</span>, a backend-focused full-stack developer who builds modern web apps that are clean, responsive, and real-world ready.
-            </h3>
-            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed glass-card p-4 sm:p-6">
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
               <p>
                 I specialize in building full-stack applications using modern tools like React, Node.js, TypeScript, and Socket.io, focusing on performance, maintainability, and scalability. Whether it's real-time collaboration or seamless UI, I aim to deliver solutions that work beautifully — inside and out.
               </p>
@@ -110,11 +83,7 @@ const About = () => {
               </p>
             </div>
 
-<<<<<<< HEAD
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 py-6 sm:py-8">
-=======
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 py-4 sm:py-6">
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
@@ -124,7 +93,6 @@ const About = () => {
                   viewport={{ once: true }}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
-<<<<<<< HEAD
                   <Card className="glass-card border-none shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <CardContent className="p-4 sm:p-6 md:p-8 text-center relative">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
@@ -134,17 +102,6 @@ const About = () => {
                         </div>
                         <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">{stat.value}</div>
                         <div className="text-xs sm:text-sm md:text-base text-muted-foreground mt-1">{stat.label}</div>
-=======
-                  <Card className="glass-card border-none shadow-lg overflow-hidden">
-                    <CardContent className="p-3 sm:p-4 text-center relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
-                      <div className="relative z-10">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 rounded-full bg-primary/10 flex items-center justify-center">
-                          <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                        </div>
-                        <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">{stat.value}</div>
-                        <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
                       </div>
                     </CardContent>
                   </Card>
@@ -152,13 +109,8 @@ const About = () => {
               ))}
             </div>
 
-<<<<<<< HEAD
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8">
               <Button asChild className="hero-primary-btn group glass-effect hover:shadow-lg transition-all w-full sm:w-auto">
-=======
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Button asChild className="hero-primary-btn group glass-effect hover:shadow-lg transition-all">
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
                 <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-3 h-5 w-5 sm:h-6 sm:w-6 group-hover:translate-y-1 transition-transform" />
                   Download Resume

@@ -48,7 +48,6 @@ const Skills = () => {
   ];
 
   return (
-<<<<<<< HEAD
     <section id="skills" className="py-16 sm:py-20 md:py-24 lg:py-28 bg-muted/30 dark:bg-muted/20 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -57,16 +56,11 @@ const Skills = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative z-10">
-=======
-    <section id="skills" className="py-12 sm:py-16 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-<<<<<<< HEAD
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <motion.span 
@@ -94,26 +88,11 @@ const Skills = () => {
             viewport={{ once: true }}
             className="text-muted-foreground dark:text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto leading-relaxed"
           >
-=======
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
-        >
-          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
-            My Skills
-          </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
-            What I Bring to the Table
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
             A comprehensive skill set spanning modern web technologies and design principles
           </motion.p>
         </motion.div>
 
-<<<<<<< HEAD
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-12 sm:mb-16 md:mb-20 justify-items-center max-w-7xl mx-auto">
-=======
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -123,7 +102,6 @@ const Skills = () => {
               viewport={{ once: true }}
               className="group w-full max-w-sm mx-auto"
             >
-<<<<<<< HEAD
               <Card className="h-full w-full glass-effect backdrop-blur-sm border-border/50 dark:border-border/30 bg-card/50 dark:bg-card/30 hover:bg-card/70 dark:hover:bg-card/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 dark:hover:shadow-primary/20 hover:-translate-y-2">
                 <CardHeader className="text-center pb-4 sm:pb-6">
                   <motion.div 
@@ -138,16 +116,6 @@ const Skills = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 sm:space-y-4 md:space-y-5 pt-0">
-=======
-              <Card className="h-full hover:shadow-lg transition-shadow">
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-3 sm:mb-4 p-2 sm:p-3 bg-primary/10 rounded-lg w-fit">
-                    <category.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-base sm:text-lg">{category.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3 sm:space-y-4">
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
@@ -160,7 +128,6 @@ const Skills = () => {
                       viewport={{ once: true }}
                       className="group/skill"
                     >
-<<<<<<< HEAD
                       <div className="flex justify-between items-center mb-2 sm:mb-3">
                         <span className="text-sm sm:text-base md:text-lg font-medium text-foreground dark:text-foreground group-hover/skill:text-primary dark:group-hover/skill:text-primary transition-colors duration-300">
                           {skill.name}
@@ -173,13 +140,6 @@ const Skills = () => {
                         value={skill.level} 
                         className="h-2 sm:h-2.5 md:h-3 bg-muted/50 dark:bg-muted/30" 
                       />
-=======
-                      <div className="flex justify-between items-center mb-1.5 sm:mb-2">
-                        <span className="text-xs sm:text-sm font-medium">{skill.name}</span>
-                        <span className="text-xs text-muted-foreground">{skill.level}%</span>
-                      </div>
-                      <Progress value={skill.level} className="h-1.5 sm:h-2" />
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
                     </motion.div>
                   ))}
                 </CardContent>
@@ -194,7 +154,6 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-<<<<<<< HEAD
           className="text-center"
         >
           <motion.h3 
@@ -207,12 +166,6 @@ const Skills = () => {
             Technologies I Love Working With
           </motion.h3>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-=======
-          className="mt-12 sm:mt-16 text-center"
-        >
-          <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 px-4 sm:px-0">Technologies I Love Working With</h3>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 px-4 sm:px-0">
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
             {[
               'React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 
               'PostgreSQL', 'MongoDB', 'AWS', 'Docker', 'GraphQL', 'Python', 'Vue.js'
@@ -223,14 +176,9 @@ const Skills = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true }}
-<<<<<<< HEAD
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 lg:px-7 lg:py-3.5 glass-effect backdrop-blur-sm bg-secondary/50 dark:bg-secondary/30 hover:bg-secondary/70 dark:hover:bg-secondary/50 text-secondary-foreground dark:text-secondary-foreground border border-border/50 dark:border-border/30 hover:border-primary/50 dark:hover:border-primary/40 rounded-full text-sm sm:text-base md:text-lg font-medium cursor-default transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 dark:hover:shadow-primary/20"
-=======
-                whileHover={{ scale: 1.05 }}
-                className="px-3 py-1.5 sm:px-4 sm:py-2 bg-secondary text-secondary-foreground rounded-full text-xs sm:text-sm font-medium cursor-default"
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
               >
                 {tech}
               </motion.span>

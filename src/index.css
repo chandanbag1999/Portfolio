@@ -181,11 +181,7 @@ button:focus-visible {
 /* Custom navigation button styles */
 @layer components {
   .nav-button {
-<<<<<<< HEAD
     @apply px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 rounded-xl font-medium transition-all duration-300 text-sm sm:text-base md:text-lg;
-=======
-    @apply px-3 py-2 sm:px-4 rounded-lg font-medium transition-all duration-300;
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
     background-color: hsl(var(--nav-button-bg));
     color: hsl(var(--nav-button-text));
     border: 1px solid hsl(var(--border));
@@ -208,11 +204,7 @@ button:focus-visible {
   
   /* Hero section button styles */
   .hero-primary-btn {
-<<<<<<< HEAD
     @apply px-8 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 text-base sm:text-lg md:text-xl lg:text-2xl font-semibold rounded-xl shadow-lg transition-all duration-300;
-=======
-    @apply px-6 py-2.5 sm:px-8 sm:py-3 text-base sm:text-lg font-semibold rounded-lg shadow-lg transition-all duration-300;
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
     background-color: hsl(var(--hero-primary-btn-bg));
     color: hsl(var(--hero-primary-btn-text));
     box-shadow: 0 10px 25px -5px hsla(var(--primary), 0.5);
@@ -240,11 +232,7 @@ button:focus-visible {
   }
   
   .hero-secondary-btn {
-<<<<<<< HEAD
     @apply px-8 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 text-base sm:text-lg md:text-xl lg:text-2xl font-semibold rounded-xl border-2 transition-all duration-300;
-=======
-    @apply px-6 py-2.5 sm:px-8 sm:py-3 text-base sm:text-lg font-semibold rounded-lg border-2 transition-all duration-300;
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
     background-color: hsl(var(--hero-secondary-btn-bg));
     color: hsl(var(--hero-secondary-btn-text));
     border-color: hsl(var(--primary) / 0.3);
@@ -273,11 +261,7 @@ button:focus-visible {
   }
   
   .social-icon-btn {
-<<<<<<< HEAD
     @apply p-3 sm:p-4 md:p-5 rounded-xl border transition-all duration-300;
-=======
-    @apply p-2 sm:p-3 rounded-lg border transition-all duration-300;
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
     background-color: hsl(var(--secondary));
     color: hsl(var(--secondary-foreground));
     border-color: hsl(var(--border));
@@ -297,7 +281,6 @@ button:focus-visible {
     @apply relative overflow-hidden rounded-xl border transition-all duration-300;
     background-color: hsl(var(--theme-toggle-bg));
     border-color: hsl(var(--theme-toggle-border));
-<<<<<<< HEAD
     width: 2.5rem;
     height: 2.5rem;
     box-shadow: 0 6px 18px -4px hsla(var(--primary), 0.12);
@@ -330,10 +313,6 @@ button:focus-visible {
       width: 3.25rem;
       height: 3.25rem;
     }
-=======
-    box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
->>>>>>> 0a90cfcb86bf526d45d041efaa0b7ead9cecc52d
   }
   
   .theme-toggle-btn:hover {
